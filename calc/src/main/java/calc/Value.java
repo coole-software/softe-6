@@ -10,7 +10,7 @@ public class Value extends Expression {
         this.value = value;
     }
 
-    @Override
+/*     @Override
     public int evaluate(Map<String, Integer> variables) {
         return value;
     }
@@ -18,5 +18,5 @@ public class Value extends Expression {
     @Override
     public String toString() {
         return Integer.toString(value);
-    }
+    } */
 }

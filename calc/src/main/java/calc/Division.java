@@ -1,12 +1,12 @@
 package calc;
 
-public class Division extends Binary {
+public class Division<T> extends Binary<T> {
 
-    public Division(Expression lhs, Expression rhs) {
+    public Division(Expression<T> lhs, Expression<T> rhs) {
         super(lhs, rhs);
     }
 
-    @Override
+/*     @Override
     protected int compute(int a, int b) {
         return a / b;
     }
@@ -19,10 +19,10 @@ public class Division extends Binary {
     @Override
     public int rank() {
         return 1;
-    }
-    
-    @Override
-    protected T accept(ExpressionVisitor<T> visitor){
+    } */
 
+    @Override
+    public T accept(ExpressionVisitor<T> visitor){
+        return visitor.visitDivision(this);
     }
 }
