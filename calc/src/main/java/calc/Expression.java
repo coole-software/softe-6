@@ -1,6 +1,6 @@
 package calc;
 
 
-interface Expression extends ExpressionVisitor<T> {
+interface Expression<T> extends ExpressionVisitor<T> {
     T accept(ExpressionVisitor<T> visitor);
 }
