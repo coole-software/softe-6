@@ -1,0 +1,22 @@
+name: test
+
+on: [push]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Set up Java
+              uses: actions/setup-java@v1
+              with:
+                  java-version: 11
+
+            - name: Build
+              run: mvn compile
+              working-directory: calc
+
+            - name: Run
+              run: mvn exec:java -Dexec.mainClass="calc.Main"
+              working-directory: calc
