@@ -14,13 +14,15 @@ public abstract class Binary<T> implements Expression<T> {
 
 
     private String brackets(Expression<T> e, boolean strict) {
- /*        String s = e.toString();
+        /*
+        String s = e.toString();
         int outerRank = rank();
         int innerRank = e.rank();
         if (innerRank > outerRank || strict && innerRank == outerRank) {
             s = "(" + s + ")";
-        } */
-        return s;
+        }
+        return s; */
+        return null;
     }
 
 }
