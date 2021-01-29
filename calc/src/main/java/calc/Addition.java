@@ -21,6 +21,6 @@ public class Addition<T> extends Binary<T> implements Associative {
 
     @Override
     public T accept(ExpressionVisitor<T> visitor) {
-        visitor.visitAddition(this);
+        return visitor.visitAddition(this);
     }
 }
