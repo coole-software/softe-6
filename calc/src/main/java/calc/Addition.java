@@ -1,12 +1,12 @@
 package calc;
 
-public class Addition extends Binary implements Associative {
+public class Addition<T> extends Binary<T> implements Associative {
 
-    public Addition(Expression lhs, Expression rhs) {
+    public Addition(Expression<T> lhs, Expression<T> rhs) {
         super(lhs, rhs);
     }
 
-    @Override
+/*     @Override
     protected int compute(int a, int b) {
         return a + b;
     }
@@ -19,10 +19,10 @@ public class Addition extends Binary implements Associative {
     @Override
     public int rank() {
         return 2;
-    }
+    } */
 
     @Override
-    protected T accept(ExpressionVisitor<T> visitor){
-
+    public void accept(ExpressionVisitor<T> visitor) {
+        visitor.visitAddition(this);
     }
 }
