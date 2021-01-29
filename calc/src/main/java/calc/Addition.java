@@ -10,19 +10,17 @@ public class Addition<T> extends Binary<T> implements Associative {
     protected int compute(int a, int b) {
         return a + b;
     }
-
     @Override
     protected String symbol() {
         return "+";
     }
-
     @Override
     public int rank() {
         return 2;
     } */
 
     @Override
-    public void accept(ExpressionVisitor<T> visitor) {
+    public T accept(ExpressionVisitor<T> visitor) {
         visitor.visitAddition(this);
     }
 }
