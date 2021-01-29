@@ -6,7 +6,6 @@ public class Multiplication<T> extends Binary<T> implements Associative {
         super(lhs, rhs);
     }
 
-/*     @Override
     protected int compute(int a, int b) {
         return a * b;
     }
@@ -16,10 +15,11 @@ public class Multiplication<T> extends Binary<T> implements Associative {
         return "*";
     }
 
-    @Override
+
     public int rank() {
         return 1;
-    } */
+    } 
+    
     @Override
     public T accept(ExpressionVisitor<T> visitor){
         return visitor.visitMultiplication(this);
