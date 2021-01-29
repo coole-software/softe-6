@@ -1,25 +1,40 @@
 package calc;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Expression e = new Addition(new Multiplication(
-                new Variable("a"), new Value(2)),
-                new Variable("b"));
-        System.out.println(e); // a * 2 + b
-        System.out.println(e.evaluate(
-                Map.of("a", 3, "b", 8))); // 14
+    private final Map<String, Integer> variables = new HashMap<>();
 
-        Expression sub = new Division(new Variable("a"),
-                new Subtraction(new Variable("b"),
-                        new Addition(new Variable("c"),
-                                new Variable("d"))));
-        Expression add = new Division(new Variable("a"),
-                new Addition(new Variable("b"),
-                        new Addition(new Variable("c"),
-                                new Variable("d"))));
-        System.out.println(sub); // a / (b - (c + d))
-        System.out.println(add); // a / (b + c + d)
+    public static void main(String[] args) {
+        new Main().run();
+    }
+
+    private Optional<Integer> eval(String expression) {
+        try {
+            Expression e = Parser.parse(expression);
+            System.out.println("--> " + e);
+            int result = e.evaluate(variables);
+            System.out.println("==> " + result);
+            return Optional.of(result);
+        } catch (CalcException e) {
+            System.out.println("!!! " + e.getMessage());
+            return Optional.empty();
+        }
+    }
+
+    private void run() {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            if (line.contains(":=")) {
+                String[] parts = line.split(":=");
+                eval(parts[1]).ifPresent(v -> variables.put(parts[0].trim(), v));
+            } else {
+                eval(line);
+            }
+        }
     }
 }
