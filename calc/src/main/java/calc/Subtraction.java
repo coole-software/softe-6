@@ -1,8 +1,8 @@
 package calc;
 
-public class Subtraction<T> extends Binary<T> {
+public class Subtraction extends Binary {
 
-    public Subtraction(Expression<T> lhs, Expression<T> rhs) {
+    public Subtraction(Expression lhs, Expression rhs) {
         super(lhs, rhs);
     }
 
@@ -21,7 +21,7 @@ public class Subtraction<T> extends Binary<T> {
     } 
 
     @Override
-    public T accept(ExpressionVisitor<T> visitor){
+    public <T> T accept(ExpressionVisitor<T> visitor){
         return visitor.visitSubtraction(this);
     }
 }

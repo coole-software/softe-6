@@ -1,8 +1,8 @@
 package calc;
 
-public class Multiplication<T> extends Binary<T> implements Associative {
+public class Multiplication extends Binary implements Associative {
 
-    public Multiplication(Expression<T> lhs, Expression<T> rhs) {
+    public Multiplication(Expression lhs, Expression rhs) {
         super(lhs, rhs);
     }
 
@@ -20,7 +20,7 @@ public class Multiplication<T> extends Binary<T> implements Associative {
     } 
     
     @Override
-    public T accept(ExpressionVisitor<T> visitor){
+    public <T> T accept(ExpressionVisitor<T> visitor){
         return visitor.visitMultiplication(this);
     }
 }

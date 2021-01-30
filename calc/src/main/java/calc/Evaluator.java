@@ -11,7 +11,7 @@ public class Evaluator implements ExpressionVisitor<Integer> {
         this.variables = variables;
     }
 
-    public static int evaluate(Expression<Integer> e, Map<String, Integer> variables) {
+    public static int evaluate(Expression e, Map<String, Integer> variables) {
         return e.accept(new Evaluator(variables));
     }
     @Override

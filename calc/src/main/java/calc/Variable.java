@@ -2,7 +2,7 @@ package calc;
 
 import java.util.Map;
 
-public class Variable implements Expression{
+public class Variable{
 
     private final String name;
 
