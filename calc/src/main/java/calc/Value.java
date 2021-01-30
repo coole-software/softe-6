@@ -1,8 +1,9 @@
 package calc;
 
+import java.beans.Expression;
 import java.util.Map;
 
-public class Value{
+public class Value extends Expression {
     private final int value;
 
     public Value(int value) {
