@@ -1,7 +1,5 @@
 package calc;
 
-public interface Expression<T> {
-    T accept(ExpressionVisitor<T> visitor);
-
+public interface Expression {
+    <T> T accept(ExpressionVisitor<T> visitor);
 }
-

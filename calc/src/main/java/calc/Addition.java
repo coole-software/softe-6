@@ -1,10 +1,8 @@
 package calc;
 
-import java.util.Map;
+public class Addition extends Binary implements Associative {
 
-public class Addition<T> extends Binary<T> implements Associative {
-
-    public Addition(Expression<T> lhs, Expression<T> rhs) {
+    public Addition(Expression lhs, Expression rhs) {
         super(lhs, rhs);
     }
 
@@ -21,7 +19,7 @@ public class Addition<T> extends Binary<T> implements Associative {
     }
 
     @Override
-    public T accept(ExpressionVisitor<T> visitor) {
+    public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visitAddition(this);
     }
 
