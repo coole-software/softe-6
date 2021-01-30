@@ -7,14 +7,11 @@ public class Printer implements ExpressionVisitor<String>{
     }
 
 
-    private String brackString(){
-        return brackets()
-    }
 
-    public String brackets(Expression e) {
-        String s = e.toString();
-        int outerRank = rank();
-        int innerRank = e.rank();
+    public String brackets(Expression e, boolean strict) {
+        String s = toString(e);
+        int outerRank = 0;
+        int innerRank = Ranker.rank(e);
         if (innerRank > outerRank || strict && innerRank == outerRank) {
             s = "(" + s + ")";
         }
