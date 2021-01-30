@@ -6,6 +6,7 @@ public class Addition extends Binary implements Associative {
         super(lhs, rhs);
     }
 
+
     @Override
     public <T> T accept(ExpressionVisitor<T> visitor) {
         return visitor.visitAddition(this);
