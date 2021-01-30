@@ -6,29 +6,21 @@ public class Printer implements ExpressionVisitor<String>{
         return e.accept(new Printer());
     }
 
-
-
-    public String brackets(Expression e, boolean strict) {
-        String s = toString(e);
-        int outerRank = 0;
-        int innerRank = Ranker.rank(e);
-        if (innerRank > outerRank || strict && innerRank == outerRank) {
-            s = "(" + s + ")";
-        }
-        return s;
-    }
-
     public String visitAddition(Addition addition) {
-        return toString(addition.lhs) + "+" + toString(addition.rhs);
+        return addition.brackets(addition.lhs, false) + " + "
+            + addition.brackets(addition.rhs, !(this instanceof Associative));
     }
     public String visitDivision(Division division){
-        return toString(division.lhs) + "/" + toString(division.rhs);
+        return division.brackets(division.lhs, false) + " / "
+            + division.brackets(division.rhs, !(this instanceof Associative));
     }
     public String visitMultiplication(Multiplication multiplication){
-        return toString(multiplication.lhs) + "*" + toString(multiplication.rhs);
+        return multiplication.brackets(multiplication.lhs, false) + " * "
+            + multiplication.brackets(multiplication.rhs, !(this instanceof Associative));
     }
     public String visitSubtraction(Subtraction subtraction){
-        return toString(subtraction.lhs) + "-" + toString(subtraction.rhs);
+        return subtraction.brackets(subtraction.lhs, false) + " - "
+            + subtraction.brackets(subtraction.rhs, !(this instanceof Associative));
     }
     public String visitValue(Value value){
         return Integer.toString(value.value);

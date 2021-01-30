@@ -7,16 +7,16 @@ public class Ranker implements ExpressionVisitor<Integer>{
     }
 
     public Integer visitAddition(Addition addition){
-        return rank(addition);
+        return 2;
     }
     public Integer visitDivision(Division division){
-        return rank(division);
+        return 1;
     }
     public Integer visitMultiplication(Multiplication multiplication){
-        return rank(multiplication);
+        return 1;
     }
     public Integer visitSubtraction(Subtraction subtraction){
-        return rank(subtraction);
+        return 2;
     }
     public Integer visitValue(Value value){
         return 0;
