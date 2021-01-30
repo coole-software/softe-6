@@ -17,6 +17,6 @@ jobs:
               run: mvn compile
               working-directory: calc
 
-            - name: Run
-              run: mvn exec:java -Dexec.mainClass="calc.Main"
+            - name: Test
+              run: mvn test
               working-directory: calc
