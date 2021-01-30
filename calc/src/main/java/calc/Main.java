@@ -15,14 +15,12 @@ public class Main {
     private Optional<Integer> eval(String expression) {
         try {
             Expression e = Parser.parse(expression);
-            System.out.println("--> " + e);
-            int result = evaluate(e, variables);
-            System.out.println("==> " + result);
-            return Optional.of(result);
+            System.out.println("--> " + Printer.toString(e));
         } catch (CalcException e) {
             System.out.println("!!! " + e.getMessage());
             return Optional.empty();
         }
+        return null;
     }
 
 
@@ -35,7 +33,7 @@ public class Main {
                 eval(parts[1]).ifPresent(v -> variables.put(parts[0].trim(), v));
             } else {
                 eval(line);
-            }
+            } 
         }
     }
 }

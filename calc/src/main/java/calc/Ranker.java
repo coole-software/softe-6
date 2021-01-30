@@ -18,4 +18,10 @@ public class Ranker implements ExpressionVisitor<Integer>{
     public Integer visitSubtraction(Subtraction subtraction){
         return rank(subtraction);
     }
+    public Integer visitValue(Value value){
+        return 0;
+    }
+    public Integer visitVariable(Variable variable){
+        return 0;
+    }
 }

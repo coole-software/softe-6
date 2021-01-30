@@ -18,4 +18,10 @@ public class Printer implements ExpressionVisitor<String>{
     public String visitSubtraction(Subtraction subtraction){
         return toString(subtraction);
     }
+    public String visitValue(Value value){
+        return Integer.toString(value.value);
+    }
+    public String visitVariable(Variable variable){
+        return variable.name;
+    }
 }

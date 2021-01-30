@@ -33,6 +33,16 @@ public class Evaluator implements ExpressionVisitor<Integer> {
     public Integer visitSubtraction(Subtraction subtraction) {
         return evaluate(subtraction, variables);
     }
+
+    @Override
+    public Integer visitValue(Value value) {
+        return value.value;
+    }
+
+    @Override
+    public Integer visitVariable(Variable variable) {
+        return variables.get(variable.name);
+    }
     
 
 
