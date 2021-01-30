@@ -25,6 +25,7 @@ public class Main {
         }
     }
 
+
     private void run() {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {

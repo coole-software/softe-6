@@ -10,7 +10,6 @@ public class Multiplication<T> extends Binary<T> implements Associative {
         return a * b;
     }
 
-    @Override
     protected String symbol() {
         return "*";
     }

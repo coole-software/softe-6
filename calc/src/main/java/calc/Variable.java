@@ -3,7 +3,7 @@ package calc;
 import java.beans.Expression;
 import java.util.Map;
 
-public class Variable extends Expression {
+public class Variable {
 
     private final String name;
 
@@ -11,7 +11,7 @@ public class Variable extends Expression {
         this.name = name;
     }
 
-    @Override
+
     public int evaluate(Map<String, Integer> variables) {
         if (!variables.containsKey(name)) {
             throw new CalcException("Unknown variable: " + name);
