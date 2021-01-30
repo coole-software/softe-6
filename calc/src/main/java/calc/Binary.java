@@ -3,8 +3,8 @@ package calc;
 import java.util.Map;
 
 public abstract class Binary implements Expression {
-    private final Expression lhs;
-    private final Expression rhs;
+    public final Expression lhs;
+    public final Expression rhs;
 
 
     public Binary(Expression lhs, Expression rhs) {
