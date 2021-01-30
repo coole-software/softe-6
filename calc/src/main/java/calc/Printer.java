@@ -6,6 +6,21 @@ public class Printer implements ExpressionVisitor<String>{
         return e.accept(new Printer());
     }
 
+
+    private String brackString(){
+        return brackets()
+    }
+
+    public String brackets(Expression e) {
+        String s = e.toString();
+        int outerRank = rank();
+        int innerRank = e.rank();
+        if (innerRank > outerRank || strict && innerRank == outerRank) {
+            s = "(" + s + ")";
+        }
+        return s;
+    }
+
     public String visitAddition(Addition addition) {
         return toString(addition.lhs) + "+" + toString(addition.rhs);
     }

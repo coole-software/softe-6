@@ -15,7 +15,8 @@ public class Main {
     private Optional<Integer> eval(String expression) {
         try {
             Expression e = Parser.parse(expression);
-            System.out.println("--> " + Printer.toString(e));
+            System.out.println("--> " + Printer.toString(e) + " = " + Evaluator.evaluate(e, variables));
+
         } catch (CalcException e) {
             System.out.println("!!! " + e.getMessage());
             return Optional.empty();

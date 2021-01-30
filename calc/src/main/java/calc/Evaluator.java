@@ -16,22 +16,22 @@ public class Evaluator implements ExpressionVisitor<Integer> {
     }
     @Override
     public Integer visitAddition(Addition addition) {
-        return evaluate(addition, variables);
+        return evaluate(addition.lhs, variables) + evaluate(addition.rhs, variables);
     }
 
     @Override
     public Integer visitDivision(Division division) {
-        return evaluate(division, variables);
+        return evaluate(division.lhs, variables) / evaluate(division.rhs, variables);
     }
 
     @Override
     public Integer visitMultiplication(Multiplication multiplication) {
-        return evaluate(multiplication, variables);
+        return evaluate(multiplication.lhs, variables) * evaluate(multiplication.rhs, variables);
     }
 
     @Override
     public Integer visitSubtraction(Subtraction subtraction) {
-        return evaluate(subtraction, variables);
+        return evaluate(subtraction.lhs, variables) - evaluate(subtraction.rhs, variables);
     }
 
     @Override
