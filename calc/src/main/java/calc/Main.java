@@ -16,7 +16,7 @@ public class Main {
         try {
             Expression e = Parser.parse(expression);
             System.out.println("--> " + e);
-            int result = e.evaluate(variables);
+            int result = evaluate(e, variables);
             System.out.println("==> " + result);
             return Optional.of(result);
         } catch (CalcException e) {
